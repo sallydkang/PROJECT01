@@ -2,17 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>PROJECT01</title>
+    <title>PICPICK</title>
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <!--Input Name Section-->
     <section id="enterName">
-      <h1>ENTER NAME: <br><input id="userName" type="text" name="username"></h1>
+      <h1 id="gameName"><strong>PIC</strong>PICK</h1>
+      <h1>ENTER <strong>NAME: </strong><br><input id="userName" type="text" name="username"></h1>
     </section>
     <!--Choose avatar-->
     <section id="chooseAvatar" class="hide">
-      <h1>Choose Avatar: </h1>
+      <h1>Choose <strong>Avatar: </strong></h1>
       <div id="avatarBox">
           <div class="row">
             <div class="square"></div>
@@ -55,15 +57,23 @@
       <div id="countdown-timer"></div>
     </section>
     <section id="instructionScreen" class="hide">
-      <h2>INSTRUCTIONS: </h2><br>
-      <h3>Guess the image as fast as possible before the time runs out</h3><br>
-      <h1>PRESS START:</h1>
-      <p><img src= "img/5Wk8m79.gif" alt="start button" id="startButton"></p>
+      <h2>I<strong>N</strong>S<strong>T</strong>R<strong>U</strong>C<strong>T</strong>I<strong>O</strong>N<strong>S</strong>: </h2><br>
+      <h3>Guess the image as <strong>fast</strong> as possible before the time runs out!</h3><br>
+      <h3>Use your <strong>arrow keys</strong> to cycle through the image</h3><br>
+      <h1><strong>PRESS</strong> BELOW TO START:</h1>
+      <p><img src= "img/dogButtonstatic.png" alt="start button" id="startButton"></p>
     </section>
     <section id="imgScreen" class="hide">
+      <div id="timer">GO!</div>
       <div style="background-image: url(img/PICTURE1.jpg);" id="circle">
       </div>
       <h2 class="answer">ANSWER: <br><input id="answer" type="text" name="imageAnswer" value=""></h2>
+      <div id="score">0</div>
+    </section>
+    <section id="endGame" class="hide">
+      <div id="endScore"></div>
+        <p id="resize"><img src="img/dogRestartstatic.png" alt="restart" id="restart"></p>
+        <h1 id="resize">RE<strong>START</strong>?</h1>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.0.0.js"></script>

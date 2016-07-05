@@ -1,17 +1,35 @@
+html {
+  font-family: 'Amatic SC', cursive;
+  background-image: url(../img/redBack.gif);
+}
+
 #enterName {
-  margin-top: 170px;
   text-align: center;
   font-size: 60px;
+  width: auto;
+}
+
+#gameName {
+  font-size: 150px;
+  margin-bottom: 0px;
+  margin-top: 70px;
+}
+
+h1 {
+  margin: 10px;
 }
 
 input {
   height: 100px;
   font-size: 90px;
-  width: 1000px;
+  width: auto;
   text-align: center;
   border: 0px;
   outline: none;
   margin: 50px;
+  margin-bottom: 10px;
+  font-family: 'Amatic SC', cursive;
+  background-image: url(../img/redBack.gif);
 }
 
 .hide {
@@ -31,13 +49,17 @@ input {
   margin: 0px auto;
   padding: 0px;
 }
- .square {
+#startButton {
+  cursor: pointer;
+}
+
+.square {
   border: black solid 3px;
   width: 157px;
   height: 157px;
   display: inline-block;
-  margin-right: -10px;
-  margin-left: -8px;
+  margin-right: -6px;
+  margin-left: -5px;
   position: relative;
   cursor: pointer;
 
@@ -70,6 +92,7 @@ input {
   color: white;
   margin: 0px;
   padding:0px;
+  background-image: url(../img/redBack.gif);
 }
 
 .black {
@@ -81,7 +104,7 @@ input {
   height: 170px;
   border-radius: 100px;
   text-align: center;
-  margin: 150px auto;
+  margin: 30px auto;
   margin-bottom: 0px;
   outline: none;
   border: #00aaff solid 15px;
@@ -89,4 +112,48 @@ input {
 
 .answer {
   text-align: center;
+  margin: 0px;
+}
+
+#timer {
+  font-size: 100px;
+}
+
+#score {
+  font-size: 60px;
+  text-align: center;
+  color: #ff6666
+}
+
+.fade-in {
+  background-color: rgba(255, 0, 0, 1);
+  transition: background-color .5s linear;
+}
+
+.fade-out {
+  background-color: rgba(255, 0, 0, 0);
+  transition: background-color .5s linear;
+}
+
+#endGame {
+  text-align: center;
+  margin: 100px auto;
+  font-size: 100px;
+}
+
+h3{
+  margin: 0px auto;
+}
+
+h2 {
+  margin: 60px;
+}
+
+strong {
+  color: #ff6666;
+}
+
+#resize {
+  margin: 0px;
+  font-size: 50px;
 }
