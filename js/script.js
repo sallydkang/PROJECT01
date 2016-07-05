@@ -109,22 +109,23 @@ $restart.hover(function(){
   function(){
   $(this).attr("src", "img/dogRestartstatic.png");
 });
-//user enters name and switches screen from entername-->chooseAvatar
+//user enters name and switches screen from entername to instruction
 $userName.focus();
 $userName.on('keyup', function(e){
   if (e.keyCode === 13) {
     name = $userName.val();
     $nameScreen.hide();
     $instructionScreen.removeClass("hide");
+    $('html').addClass("black");
   }
 });
 
-//avatar
-$('#avatarBox').on('click', function(e){
-  $instructionScreen.removeClass("hide");
-  $('html').addClass("black");
-  $avatarScreen.hide();
-});
+// //avatar
+// $('#avatarBox').on('click', function(e){
+//   $instructionScreen.removeClass("hide");
+//   $('html').addClass("black");
+//   $avatarScreen.hide();
+// });
 //startbutton hover animation
 $('#startButton').hover(function(){
    $(this).attr("src", "img/dogButton.gif");
