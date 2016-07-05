@@ -2,19 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
     <title>PROJECT01</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <!--Input Name Section-->
     <section id="enterName">
-      <h1>ENTER NAME: <br><input id="userName" type="text" name="username" value=""></h1>
+      <h1>ENTER NAME: <br><input id="userName" type="text" name="username"></h1>
     </section>
     <!--Choose avatar-->
     <section id="chooseAvatar" class="hide">
       <h1>Choose Avatar: </h1>
       <div id="avatarBox">
-        <tbody>
           <div class="row">
             <div class="square"></div>
             <div class="square"></div>
@@ -50,14 +49,21 @@
             <div class="square none"></div>
             <div class="square none"></div>
           </div>
-        </tbody>
       </div>
     </section>
     <section id="countScreen" class="hide">
       <div id="countdown-timer"></div>
     </section>
-    <section id>
-
+    <section id="instructionScreen" class="hide">
+      <h2>INSTRUCTIONS: </h2><br>
+      <h3>Guess the image as fast as possible before the time runs out</h3><br>
+      <h1>PRESS START:</h1>
+      <p><img src= "img/5Wk8m79.gif" alt="start button" id="startButton"></p>
+    </section>
+    <section id="imgScreen" class="hide">
+      <div style="background-image: url(img/PICTURE1.jpg);" id="circle">
+      </div>
+      <h2 class="answer">ANSWER: <br><input id="answer" type="text" name="imageAnswer" value=""></h2>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
