@@ -13,54 +13,15 @@
       <h1>ENTER <strong>NAME: </strong><br><input id="userName" type="text" name="username"></h1>
     </section>
     <!--Choose avatar-->
-    <section id="chooseAvatar" class="hide">
-      <h1>Choose <strong>Avatar: </strong></h1>
-      <div id="avatarBox">
-          <div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-          </div>
-          <div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-          </div>
-          <div class="row">
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-            <div class="square"></div>
-          </div>
-          <div class="row none">
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-          </div>
-          <div class="row none">
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-            <div class="square none"></div>
-          </div>
-      </div>
-    </section>
     <section id="countScreen" class="hide">
       <div id="countdown-timer"></div>
     </section>
     <section id="instructionScreen" class="hide">
-      <h2>I<strong>N</strong>S<strong>T</strong>R<strong>U</strong>C<strong>T</strong>I<strong>O</strong>N<strong>S</strong>: </h2><br>
-      <h3>Guess the image as <strong>fast</strong> as possible before the time runs out!</h3><br>
+      <h2 id="instruction">I<strong>N</strong>S<strong>T</strong>R<strong>U</strong>C<strong>T</strong>I<strong>O</strong>N<strong>S</strong>: </h2><br>
+      <h3>You have 150 seconds to guess all <strong>30 images</strong>!!</h3><br>
+      <h3>Every wrong answer you lose <strong>5 seconds</strong></h3>
       <h3>Use your <strong>arrow keys</strong> to cycle through the image</h3><br>
-      <h1><strong>PRESS</strong> BELOW TO START:</h1>
+      <h1><strong>CLICK</strong> BELOW TO START:</h1>
       <p><img src= "img/dogButtonstatic.png" alt="start button" id="startButton"></p>
     </section>
     <section id="imgScreen" class="hide">
@@ -71,9 +32,14 @@
       <div id="score">0</div>
     </section>
     <section id="endGame" class="hide">
-      <div id="endScore"></div>
+      <div id="endScore" class="color"></div>
         <p id="resize"><img src="img/dogRestartstatic.png" alt="restart" id="restart"></p>
         <h1 id="resize">RE<strong>START</strong>?</h1>
+    </section>
+    <section id="winGame" class="hide">
+      <h1><strong>♥</strong>CONGRATULATIONS<strong>♥</strong></h1>
+      <p><img src="img/bow.gif" alt="dogbow"></p>
+      <h2>YOU <strong>BEAT</strong> THE <strong>GAME</strong>!<strong>!</strong></h2>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.0.0.js"></script>

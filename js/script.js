@@ -12,40 +12,39 @@ var $endGame = $('#endGame');
 var $gameTimer = $('#timer'); //game timer
 var $score = $('#score');
 var $restart = $('#restart');
+var $winGame = $('#winGame');
 var playerScore = 0;
 var name="";
 var positions = ["50% 5%", "30% 80%", "30% 20%", "80% 50%"]
 var num = 0;
 var currentImage = 0;
 var images = [
-  {
-    url: "url(img/picture1.jpg)",
-    name: "dog"
-  },
-  {
-    url: "url(img/picture2.jpg)",
-    name: "cat"
-  },
-  {
-    url: "url(img/picture3.jpg)",
-    name: "hamster"
-  },
-  {
-    url: "url(img/picture4.jpg)",
-    name: "duck"
-  },
-  {
-    url: "url(img/picture5.jpg)",
-    name: "raccoon"
-  },
-  {
-    url: "url(img/picture6.jpg)",
-    name: "eagle"
-  },
-  {
-    url: "url(img/picture7.jpg)",
-    name: "shovel"
-  }
+  {url: "url(img/picture1.jpg)", name: "dog"},
+  {url: "url(img/picture23.jpg)", name: "ice cream"},
+  {url: "url(img/picture24.jpg)", name: "lollipop"},
+  {url: "url(img/picture25.jpg)", name: "smartphone"},
+  {url: "url(img/picture26.jpg)", name: "gameboy"},
+  {url: "url(img/picture21.jpg)", name: "omelette"},
+  {url: "url(img/picture22.jpg)", name: "chocolate"},
+  {url: "url(img/picture16.jpg)", name: "owl"},
+  {url: "url(img/picture17.jpg)", name: "polar bear"},
+  {url: "url(img/picture18.jpg)", name: "saturn"},
+  {url: "url(img/picture19.jpg)", name: "minions"},
+  {url: "url(img/picture20.jpg)", name: "cherry"},
+  {url: "url(img/picture3.jpg)", name: "hamster"},
+  {url: "url(img/picture4.jpg)", name: "duck"},
+  {url: "url(img/picture2.jpg)", name: "cat"},
+  {url: "url(img/picture5.jpg)", name: "raccoon"},
+  {url: "url(img/picture6.jpg)", name: "eagle"},
+  {url: "url(img/picture7.jpg)", name: "shovel"},
+  {url: "url(img/picture8.jpg)", name: "burrito"},
+  {url: "url(img/picture9.jpg)", name: "fish"},
+  {url: "url(img/picture10.jpg)", name: "ferret"},
+  {url: "url(img/picture11.jpg)", name: "cheesecake"},
+  {url: "url(img/picture12.jpg)", name: "coffee"},
+  {url: "url(img/picture13.jpg)", name: "corbin"},
+  {url: "url(img/picture14.jpg)", name: "spaghetti"},
+  {url: "url(img/picture15.jpg)", name: "bee"}
 ]
 
 
@@ -65,9 +64,10 @@ $answer.on('keyup', function(e){
 
       playerScore +=1;
       $score.text(playerScore);
+      positions[0];
 
       if (currentImage >= images.length){
-        gameEnd();
+        winGame();
       }
 
       nextImg();
@@ -81,6 +81,8 @@ $answer.on('keyup', function(e){
       $('input').removeClass("fade-out");
     }, 1000);
       console.log('wrong');
+      penalty();
+
     }
   }
 })
@@ -90,7 +92,14 @@ function nextImg() {
     'background-image', images[currentImage].url
   );
 }
-
+//win game
+function winGame() {
+  $imgScreen.hide();
+  $winGame.removeClass("hide");
+  $('html').css(
+    'background-image', "url(img/starBack.gif)"
+  );
+}
 //end game score
 function gameEnd() {
   $imgScreen.hide();
@@ -120,13 +129,7 @@ $userName.on('keyup', function(e){
   }
 });
 
-// //avatar
-// $('#avatarBox').on('click', function(e){
-//   $instructionScreen.removeClass("hide");
-//   $('html').addClass("black");
-//   $avatarScreen.hide();
-// });
-//startbutton hover animation
+//GAME START
 $('#startButton').hover(function(){
    $(this).attr("src", "img/dogButton.gif");
  },
@@ -140,12 +143,13 @@ $('#startButton').on('click', function(e){
   $instructionScreen.hide();
   $('html').removeClass("black");
 
-  var timer=4;
+
+  var timer2=4;
   var timerID= setInterval(function(e){
-    timer--;
-    $timer.text(timer);
-    console.log(timer);
-      if (timer<=0){
+    timer2--;
+    $timer.text(timer2);
+    console.log(timer2);
+      if (timer2<=0){
         clearInterval(timerID);
         $countScreen.hide();
         $imgScreen.removeClass("hide");
@@ -154,8 +158,6 @@ $('#startButton').on('click', function(e){
       }
       }, 1000);
 });
-
-
 
 $(document).on('keydown', function(event){
   switch(event.which){
@@ -180,9 +182,14 @@ $(document).on('keydown', function(event){
   }
 });
 
+//subtract 5secs to timer
+function penalty(){
+  timer-=5;
+}
+
 function startTimer () {
-  var timer=150;
-  var timerID= setInterval(function(e){
+  timer=150;
+  var timerID = setInterval(function(e){
     $gameTimer.text(timer);
     timer--;
       if (timer<=0){
@@ -191,3 +198,5 @@ function startTimer () {
       }
       }, 1000);
 }
+
+//write here

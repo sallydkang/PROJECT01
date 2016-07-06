@@ -125,6 +125,10 @@ input {
   color: #ff6666
 }
 
+#restart {
+  cursor: pointer;
+}
+
 .fade-in {
   background-color: rgba(255, 0, 0, 1);
   transition: background-color .5s linear;
@@ -143,6 +147,7 @@ input {
 
 h3{
   margin: 0px auto;
+  font-size: 50px;
 }
 
 h2 {
@@ -156,4 +161,17 @@ strong {
 #resize {
   margin: 0px;
   font-size: 50px;
+}
+
+.color {
+  color: #ff6666;
+}
+
+#winGame {
+  text-align: center;
+  font-size: 70px;
+}
+
+#instruction {
+  margin-bottom: 5px;
 }
