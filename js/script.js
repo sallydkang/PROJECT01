@@ -1,3 +1,12 @@
+// window.addEventListener('load',function(){
+//   currentImage = randomIndex(images.length);
+//   index = currentImage;
+//   function nextImg(index) {
+//     $circle.css(
+//       'background-image', images[index].url
+//     );
+//   }
+// })
 //variables
 var $userName = $('#userName');
 var $nameScreen = $('#enterName');
@@ -15,14 +24,14 @@ var $restart = $('#restart');
 var $winGame = $('#winGame');
 var playerScore = 0;
 var name="";
-var positions = ["50% 5%", "30% 80%", "30% 20%", "80% 50%"]
-var num = 0;
-var currentImage = 0;
+var bgPosX = Math.floor(Math.random()*100);
+var bgPosY = Math.floor(Math.random()*100);
+var currentImage;
 var images = [
   {url: "url(img/picture1.jpg)", name: "dog"},
   {url: "url(img/picture23.jpg)", name: "ice cream"},
   {url: "url(img/picture24.jpg)", name: "lollipop"},
-  {url: "url(img/picture25.jpg)", name: "smartphone"},
+  {url: "url(img/picture25.jpg)", name: "phone"},
   {url: "url(img/picture26.jpg)", name: "gameboy"},
   {url: "url(img/picture21.jpg)", name: "omelette"},
   {url: "url(img/picture22.jpg)", name: "chocolate"},
@@ -46,6 +55,12 @@ var images = [
   {url: "url(img/picture14.jpg)", name: "spaghetti"},
   {url: "url(img/picture15.jpg)", name: "bee"}
 ]
+function url(i){
+  return images[i].url;
+}
+function randomIndex(arrLength){
+  return Math.floor(Math.random()*90) % arrLength;
+}
 
 
 // when the user types a name and hits enter
@@ -54,23 +69,24 @@ var images = [
 // if they match move to the next image and increase the score
 // if they don't match return false
 
+curretnImage = randomIndex(images.length);
+index = currentImage;
 $answer.on('keyup', function(e){
   if (e.keyCode === 13) {
     var guess = $answer.val();
     $answer.val('');
     if (images[currentImage].name === guess){
       console.log('right');
-      currentImage++;
+      var newIndex = randomIndex(images.length);
 
       playerScore +=1;
       $score.text(playerScore);
-      positions[0];
 
       if (currentImage >= images.length){
         winGame();
       }
 
-      nextImg();
+      nextImg(newIndex);
     } else {
       $('input').addClass("fade-in");
       setTimeout(function() {
@@ -87,9 +103,9 @@ $answer.on('keyup', function(e){
   }
 })
 
-function nextImg() {
+function nextImg(index) {
   $circle.css(
-    'background-image', images[currentImage].url
+    'background-image', images[index].url
   );
 }
 //win game
@@ -142,6 +158,7 @@ $('#startButton').on('click', function(e){
   $countScreen.removeClass("hide");
   $instructionScreen.hide();
   $('html').removeClass("black");
+  $('#circle').css('background-image',url(index));
 
 
   var timer2=4;
@@ -162,23 +179,21 @@ $('#startButton').on('click', function(e){
 $(document).on('keydown', function(event){
   switch(event.which){
     case 39://left arrow key
-      $circle.stop().css(
-       "backgroundPosition", positions[num]
-      );
-      if (num+1 < positions.length){
-        console.log(num + 'left');
-        num ++;
-      }
-      break;
+      bgPosX +=10;
+      $circle.css('background-position-x',bgPosX+'%')
+    break;
     case 37: // right arrow
-      $circle.stop().css(
-        "backgroundPosition", positions[num]
-      );
-      if (num > 0) {
-        console.log(num+'right');
-        num--;
-      }
-      break;
+      bgPosX-=10;
+      $circle.css('background-position-x',bgPosX+'%')
+    break;
+    case 38://up
+      bgPosY-=10;
+      $circle.css('background-position-y', bgPosY+'%')
+    break;
+    case 40://down
+      bgPosY+=10;
+      $circle.css('background-position-y', bgPosY+'%')
+    break;
   }
 });
 
