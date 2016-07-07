@@ -117,6 +117,7 @@ input {
 
 #timer {
   font-size: 100px;
+  text-align: center;
 }
 
 #score {
@@ -174,4 +175,8 @@ strong {
 
 #instruction {
   margin-bottom: 5px;
+}
+
+.rebutton {
+  cursor: pointer;
 }

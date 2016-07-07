@@ -15,14 +15,17 @@ var $restart = $('#restart');
 var $winGame = $('#winGame');
 var playerScore = 0;
 var name="";
-var positions = ["50% 5%", "30% 80%", "30% 20%", "80% 50%"]
-var num = 0;
+var bgPosX = Math.floor(Math.random()*100);
+var bgPosY = Math.floor(Math.random()*100);
 var currentImage = 0;
 var images = [
   {url: "url(img/picture1.jpg)", name: "dog"},
+  {url: "url(img/picture27.jpg)", name: "snake"},
+  {url: "url(img/picture28.jpg)", name: "pineapple"},
+  {url: "url(img/picture29.jpg)", name: "glasses"},
   {url: "url(img/picture23.jpg)", name: "ice cream"},
   {url: "url(img/picture24.jpg)", name: "lollipop"},
-  {url: "url(img/picture25.jpg)", name: "smartphone"},
+  {url: "url(img/picture25.jpg)", name: "phone"},
   {url: "url(img/picture26.jpg)", name: "gameboy"},
   {url: "url(img/picture21.jpg)", name: "omelette"},
   {url: "url(img/picture22.jpg)", name: "chocolate"},
@@ -61,10 +64,10 @@ $answer.on('keyup', function(e){
     if (images[currentImage].name === guess){
       console.log('right');
       currentImage++;
+      reward();
 
       playerScore +=1;
       $score.text(playerScore);
-      positions[0];
 
       if (currentImage >= images.length){
         winGame();
@@ -108,6 +111,10 @@ function gameEnd() {
 }
 //restart
 $restart.on('click', function(){
+  location.reload();
+});
+
+$('.rebutton').on('click', function(){
   location.reload();
 });
 
@@ -159,26 +166,25 @@ $('#startButton').on('click', function(e){
       }, 1000);
 });
 
+
 $(document).on('keydown', function(event){
   switch(event.which){
     case 39://left arrow key
-      $circle.stop().css(
-       "backgroundPosition", positions[num]
-      );
-      if (num+1 < positions.length){
-        console.log(num + 'left');
-        num ++;
-      }
-      break;
+      bgPosX +=10;
+      $circle.css('background-position-x',bgPosX+'%')
+    break;
     case 37: // right arrow
-      $circle.stop().css(
-        "backgroundPosition", positions[num]
-      );
-      if (num > 0) {
-        console.log(num+'right');
-        num--;
-      }
-      break;
+      bgPosX-=10;
+      $circle.css('background-position-x',bgPosX+'%')
+    break;
+    case 38://up
+      bgPosY-=10;
+      $circle.css('background-position-y', bgPosY+'%')
+    break;
+    case 40://down
+      bgPosY+=10;
+      $circle.css('background-position-y', bgPosY+'%')
+    break;
   }
 });
 
@@ -187,14 +193,19 @@ function penalty(){
   timer-=5;
 }
 
+//add secounds on right answer
+function reward() {
+  timer+=3
+}
+
 function startTimer () {
-  timer=150;
+  timer=10;
   var timerID = setInterval(function(e){
     $gameTimer.text(timer);
     timer--;
-      if (timer<=0){
-        clearInterval(timerID);
+      if (timer<-1){
         gameEnd();
+        clearInterval(timerID);
       }
       }, 1000);
 }
