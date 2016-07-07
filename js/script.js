@@ -15,8 +15,10 @@ var $restart = $('#restart');
 var $winGame = $('#winGame');
 var playerScore = 0;
 var name="";
-var bgPosX = Math.floor(Math.random()*100);
-var bgPosY = Math.floor(Math.random()*100);
+var bgPosX = 50;
+var bgPosY = 50;
+// var bgPosX = Math.floor(Math.random()*100);
+// var bgPosY = Math.floor(Math.random()*100);
 var currentImage = 0;
 var images = [
   {url: "url(img/picture1.jpg)", name: "dog"},
