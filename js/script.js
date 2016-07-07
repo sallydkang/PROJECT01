@@ -129,7 +129,7 @@ $restart.hover(function(){
 });
 //user enters name and switches screen from entername to instruction
 $userName.focus();
-$userName.on('keyup', function(e){
+$userName.on('keydown', function(e){
   if (e.keyCode === 13) {
     name = $userName.val();
     $nameScreen.hide();
