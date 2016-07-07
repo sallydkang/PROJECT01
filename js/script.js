@@ -20,7 +20,7 @@ var bgPosY = Math.floor(Math.random()*100);
 var currentImage = 0;
 var images = [
   {url: "url(img/picture1.jpg)", name: "dog"},
-  {url: "url(img/picture27.jpg)", name: "snake"},
+  {url: "url(img/picture27.JPG)", name: "snake"},
   {url: "url(img/picture28.jpg)", name: "pineapple"},
   {url: "url(img/picture29.jpg)", name: "glasses"},
   {url: "url(img/picture23.jpg)", name: "ice cream"},
@@ -39,7 +39,7 @@ var images = [
   {url: "url(img/picture2.jpg)", name: "cat"},
   {url: "url(img/picture5.jpg)", name: "raccoon"},
   {url: "url(img/picture6.jpg)", name: "eagle"},
-  {url: "url(img/picture7.jpg)", name: "shovel"},
+  {url: "url(img/picture7.JPG)", name: "shovel"},
   {url: "url(img/picture8.jpg)", name: "burrito"},
   {url: "url(img/picture9.jpg)", name: "fish"},
   {url: "url(img/picture10.jpg)", name: "ferret"},
