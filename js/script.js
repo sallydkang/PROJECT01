@@ -17,8 +17,6 @@ var playerScore = 0;
 var name="";
 var bgPosX = 50;
 var bgPosY = 50;
-// var bgPosX = Math.floor(Math.random()*100);
-// var bgPosY = Math.floor(Math.random()*100);
 var currentImage = 0;
 var images = [
   {url: "url(img/picture1.jpg)", name: "dog"},
@@ -59,7 +57,7 @@ var images = [
 // if they match move to the next image and increase the score
 // if they don't match return false
 
-$answer.on('keyup', function(e){
+$answer.on('keydown', function(e){
   if (e.keyCode === 13) {
     var guess = $answer.val();
     $answer.val('');
@@ -127,6 +125,7 @@ $restart.hover(function(){
   function(){
   $(this).attr("src", "img/dogRestartstatic.png");
 });
+
 //user enters name and switches screen from entername to instruction
 $userName.focus();
 $userName.on('keydown', function(e){
@@ -211,5 +210,3 @@ function startTimer () {
       }
       }, 1000);
 }
-
-//write here
